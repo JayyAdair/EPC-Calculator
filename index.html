@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPC Cost Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="header">
+                <h1>EPC Cost Calculator</h1>
+                <p>Energy Performance Certificate Pricing</p>
+            </div>
+
+            <form id="epcForm">
+                <div class="form-group">
+                    <label for="propertyType">Property Type:</label>
+                    <select id="propertyType" onchange="updatePrice()">
+                        <option value="domestic">Domestic Property</option>
+                        <option value="flat">Flat/Apartment</option>
+                        <option value="newBuild">New Build Property</option>
+                        <option value="commercial">Commercial Property</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode">Postcode Area:</label>
+                    <input type="text" id="postcode" placeholder="e.g., SW1A 1AA" onchange="updatePrice()">
+                </div>
+
+                <div class="form-group">
+                    <label for="urgency">Urgency:</label>
+                    <select id="urgency" onchange="updatePrice()">
+                        <option value="standard">Standard (5-7 days)</option>
+                        <option value="express">Express (2-3 days)</option>
+                        <option value="urgent">Urgent (Next day)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Number of Properties:</label>
+                    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="breakdown-item">
+                        <span>Base Price:</span>
+                        <span id="basePrice">£120.00</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Urgency Surcharge:</span>
+                        <span id="urgencyCharge">£0.00</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Travel/Location Fee:</span>
+                        <span id="travelCharge">£0.00</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Multi-Property Discount:</span>
+                        <span id="discount">£0.00</span>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <div class="total-item">
+                        <span>Unit Cost:</span>
+                        <span id="unitCost">£120.00</span>
+                    </div>
+                    <div class="total-item grand-total">
+                        <span>Total Cost:</span>
+                        <span id="totalCost">£120.00</span>
+                    </div>
+                </div>
+
+                <button type="reset" class="btn reset-btn" onclick="resetCalculator()">Reset</button>
+            </form>
+
+            <div class="info-section">
+                <h3>Price Guide:</h3>
+                <ul>
+                    <li><strong>Domestic Property:</strong> £120 - Standard inspection</li>
+                    <li><strong>Flat/Apartment:</strong> £95 - Smaller properties</li>
+                    <li><strong>New Build:</strong> £150 - Additional documentation</li>
+                    <li><strong>Commercial:</strong> £200+ - Complex assessments</li>
+                </ul>
+                <h3>Additional Charges:</h3>
+                <ul>
+                    <li><strong>Express Delivery:</strong> +30% to base price</li>
+                    <li><strong>Urgent (Next Day):</strong> +60% to base price</li>
+                    <li><strong>Location Surcharge:</strong> +£20 for remote areas (postcodes: PH, IV, HS, KA, etc.)</li>
+                    <li><strong>Bulk Discount:</strong> 10% off for 5+ properties</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

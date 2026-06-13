@@ -47,6 +47,11 @@ function getTravelCharge() {
     return 0;
 }
 
+function getConservatorySurcharge() {
+    const hasConservatory = document.getElementById('conservatory').checked;
+    return hasConservatory ? 20 : 0;
+}
+
 function getDiscount() {
     const quantity = parseInt(document.getElementById('quantity').value) || 1;
     
@@ -55,7 +60,8 @@ function getDiscount() {
         const basePrice = getBasePrice();
         const urgencySurcharge = getUrgencySurcharge();
         const travelCharge = getTravelCharge();
-        const subtotal = (basePrice + urgencySurcharge + travelCharge) * quantity;
+        const conservatorySurcharge = getConservatorySurcharge();
+        const subtotal = (basePrice + urgencySurcharge + travelCharge + conservatorySurcharge) * quantity;
         return subtotal * 0.10;
     }
 
@@ -67,16 +73,18 @@ function updatePrice() {
     const basePrice = getBasePrice();
     const urgencySurcharge = getUrgencySurcharge();
     const travelCharge = getTravelCharge();
+    const conservatorySurcharge = getConservatorySurcharge();
     const discount = getDiscount();
 
     // Update display values
     document.getElementById('basePrice').textContent = '£' + basePrice.toFixed(2);
     document.getElementById('urgencyCharge').textContent = '£' + urgencySurcharge.toFixed(2);
     document.getElementById('travelCharge').textContent = '£' + travelCharge.toFixed(2);
+    document.getElementById('conservatorySurcharge').textContent = '£' + conservatorySurcharge.toFixed(2);
     document.getElementById('discount').textContent = '-£' + discount.toFixed(2);
 
     // Calculate unit cost (cost per property)
-    const unitCost = basePrice + urgencySurcharge + travelCharge;
+    const unitCost = basePrice + urgencySurcharge + travelCharge + conservatorySurcharge;
     document.getElementById('unitCost').textContent = '£' + unitCost.toFixed(2);
 
     // Calculate total cost
@@ -90,6 +98,7 @@ function resetCalculator() {
     document.getElementById('postcode').value = '';
     document.getElementById('urgency').value = 'standard';
     document.getElementById('quantity').value = '1';
+    document.getElementById('conservatory').checked = false;
     updatePrice();
 }
 

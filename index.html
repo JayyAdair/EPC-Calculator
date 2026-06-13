@@ -16,12 +16,14 @@
 
             <form id="epcForm">
                 <div class="form-group">
-                    <label for="propertyType">Property Type:</label>
-                    <select id="propertyType" onchange="updatePrice()">
-                        <option value="domestic">Domestic Property</option>
-                        <option value="flat">Flat/Apartment</option>
-                        <option value="newBuild">New Build Property</option>
-                        <option value="commercial">Commercial Property</option>
+                    <label for="bedrooms">Number of Bedrooms:</label>
+                    <select id="bedrooms" onchange="updatePrice()">
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4 Bedrooms</option>
+                        <option value="5">5 Bedrooms</option>
+                        <option value="6">6+ Bedrooms</option>
                     </select>
                 </div>
 
@@ -47,7 +49,7 @@
                 <div class="price-breakdown">
                     <div class="breakdown-item">
                         <span>Base Price:</span>
-                        <span id="basePrice">£120.00</span>
+                        <span id="basePrice">£95.00</span>
                     </div>
                     <div class="breakdown-item">
                         <span>Urgency Surcharge:</span>
@@ -66,11 +68,11 @@
                 <div class="total-section">
                     <div class="total-item">
                         <span>Unit Cost:</span>
-                        <span id="unitCost">£120.00</span>
+                        <span id="unitCost">£95.00</span>
                     </div>
                     <div class="total-item grand-total">
                         <span>Total Cost:</span>
-                        <span id="totalCost">£120.00</span>
+                        <span id="totalCost">£95.00</span>
                     </div>
                 </div>
 
@@ -78,12 +80,14 @@
             </form>
 
             <div class="info-section">
-                <h3>Price Guide:</h3>
+                <h3>Bedroom Price Guide:</h3>
                 <ul>
-                    <li><strong>Domestic Property:</strong> £120 - Standard inspection</li>
-                    <li><strong>Flat/Apartment:</strong> £95 - Smaller properties</li>
-                    <li><strong>New Build:</strong> £150 - Additional documentation</li>
-                    <li><strong>Commercial:</strong> £200+ - Complex assessments</li>
+                    <li><strong>1 Bedroom:</strong> £95 - Studio/small flat</li>
+                    <li><strong>2 Bedrooms:</strong> £110 - Small house/flat</li>
+                    <li><strong>3 Bedrooms:</strong> £125 - Standard house</li>
+                    <li><strong>4 Bedrooms:</strong> £140 - Larger house</li>
+                    <li><strong>5 Bedrooms:</strong> £160 - Large property</li>
+                    <li><strong>6+ Bedrooms:</strong> £180 - Very large property</li>
                 </ul>
                 <h3>Additional Charges:</h3>
                 <ul>

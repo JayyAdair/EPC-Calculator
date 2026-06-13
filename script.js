@@ -1,17 +1,19 @@
-// Base prices for different property types
+// Base prices for different bedroom counts
 const basePrices = {
-    domestic: 120,
-    flat: 95,
-    newBuild: 150,
-    commercial: 200
+    1: 95,
+    2: 110,
+    3: 125,
+    4: 140,
+    5: 160,
+    6: 180
 };
 
 // Remote area postcode prefixes (higher surcharges)
 const remoteAreas = ['PH', 'IV', 'HS', 'KA27', 'KA28', 'PA', 'TR', 'EX', 'PL', 'TQ'];
 
 function getBasePrice() {
-    const propertyType = document.getElementById('propertyType').value;
-    return basePrices[propertyType];
+    const bedrooms = document.getElementById('bedrooms').value;
+    return basePrices[bedrooms];
 }
 
 function getUrgencySurcharge() {
@@ -84,7 +86,7 @@ function updatePrice() {
 }
 
 function resetCalculator() {
-    document.getElementById('propertyType').value = 'domestic';
+    document.getElementById('bedrooms').value = '1';
     document.getElementById('postcode').value = '';
     document.getElementById('urgency').value = 'standard';
     document.getElementById('quantity').value = '1';

@@ -97,3 +97,12 @@ function resetCalculator() {
 document.addEventListener('DOMContentLoaded', function() {
     updatePrice();
 });
+
+// Ensure initialization runs even if DOMContentLoaded already fired
+if (document.readyState === 'loading') {
+    // DOM is still loading
+    document.addEventListener('DOMContentLoaded', updatePrice);
+} else {
+    // DOM is already loaded
+    updatePrice();
+}

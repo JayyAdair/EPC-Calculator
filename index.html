@@ -46,6 +46,13 @@
                     <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
                 </div>
 
+                <div class="form-group checkbox-group">
+                    <label for="conservatory">
+                        <input type="checkbox" id="conservatory" onchange="updatePrice()">
+                        Property has Conservatory (+£20)
+                    </label>
+                </div>
+
                 <div class="price-breakdown">
                     <div class="breakdown-item">
                         <span>Base Price:</span>
@@ -58,6 +65,10 @@
                     <div class="breakdown-item">
                         <span>Travel/Location Fee:</span>
                         <span id="travelCharge">£0.00</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Conservatory Surcharge:</span>
+                        <span id="conservatorySurcharge">£0.00</span>
                     </div>
                     <div class="breakdown-item">
                         <span>Multi-Property Discount:</span>
@@ -94,6 +105,7 @@
                     <li><strong>Express Delivery:</strong> +30% to base price</li>
                     <li><strong>Urgent (Next Day):</strong> +60% to base price</li>
                     <li><strong>Location Surcharge:</strong> +£20 for remote areas (postcodes: PH, IV, HS, KA, etc.)</li>
+                    <li><strong>Conservatory Surcharge:</strong> +£20 for properties with conservatory</li>
                     <li><strong>Bulk Discount:</strong> 10% off for 5+ properties</li>
                 </ul>
             </div>
